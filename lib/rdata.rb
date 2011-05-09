@@ -111,7 +111,7 @@ class Rdata
 	
 	def remove_serie(serie_name="Serie1")
 		if (!@data_description["values"].nil?)
-			found = false;
+			found = false
 			@data_description["values"].each do |v|
 				@data_description["values"].delete(v)  if (v == serie_name )
 			end

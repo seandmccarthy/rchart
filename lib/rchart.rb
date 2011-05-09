@@ -302,8 +302,10 @@ class Rchart
 		self.	draw_scale(data, data_description, scale_mode, r, g, b,draw_ticks,angle,decimals,with_margin,skip_labels,true)
 	end
 
-	# This function will draw both axis and write values on it. You can disable the labelling of the axis setting draw_ticks to false. angle can be used to rotate the vertical ticks labels.
-	# decimal specify the number of decimal values we want to keep. Setting draw_ticks to false will not draw vertical & horizontal ticks on the axis ( labels will also not be written ).
+	# This function will draw both axis and write values on it. You can disable the labelling of the axis setting draw_ticks to false.
+  # angle can be used to rotate the vertical ticks labels.
+	# decimal specify the number of decimal values we want to keep.
+  # Setting draw_ticks to false will not draw vertical & horizontal ticks on the axis ( labels will also not be written ).
 	# There is four way of computing scales :
 	# * Getting Max & Min values per serie : scale_mode = Rchart::SCALE_NORMAL
 	# * Like the previous one but setting the min value to 0 : scale_mode = Rchart::SCALE_START0
@@ -338,7 +340,6 @@ class Rchart
 #       /* Compute Min and Max values */
 			if(scale_mode == SCALE_NORMAL || scale_mode == SCALE_START0)
 				@vmin = 0 if (scale_mode == SCALE_START0 )
-
 				data.each do |key|
 					data_description["values"].each do |col_name|
 						if(!key[col_name].nil?)
@@ -443,7 +444,7 @@ class Rchart
 		@division_ratio  = ( @g_area_y2 - @g_area_y1 )*1.0 /data_range
 		@g_area_x_offset  = 0
 		if ( data.count > 1 )
-			if ( with_margin == false)
+			if (with_margin == false)
 				@division_width = ( @g_area_x2 - @g_area_x1 )*1.0 / ((data).count-1)
 			else
 				@division_width = ( @g_area_x2 - @g_area_x1 ) *1.0/ (data).count
@@ -725,7 +726,7 @@ class Rchart
 				end
 
 				if ( (@v_x_min*1.0 / scale / factor).floor != @v_x_min / scale / factor)
-					grid_id     = floor( @v_x_min / scale / factor);
+					grid_id     = (@v_x_min / scale / factor).floor
 					@v_x_min = grid_id * scale * factor
 					x_divisions+=1
 				end
@@ -810,8 +811,10 @@ class Rchart
 	# Setting mosaic to true will draw grey area between two lines. 
 	# You can define the transparency factor of the mosaic area playing with the alpha parameter.
 	
-	def draw_grid(line_width,mosaic=true,r=220,g=220,b=220,alpha=100)
+    def draw_grid(line_width,mosaic=true,r=220,g=220,b=220,alpha=100)
 		# Draw mosaic */
+
+      
 		if (mosaic)
 			layer_width  = @g_area_x2-@g_area_x1
 			layer_height = @g_area_y2-@g_area_y1
@@ -993,7 +996,7 @@ class Rchart
 			c_shadow_color = allocate_color(@picture,@shadow_r_color,@shadow_g_color,@shadow_b_color)
 			image_ttf_text(@picture,@font_size,0,x_pos+@shadow_x_distance,y_pos+@shadow_y_distance, c_shadow_color ,@font_name,value)
 		end
-		image_ttf_text(@picture,@font_size,0,x_pos,y_pos,c_text_color,@font_name,value);
+		  image_ttf_text(@picture,@font_size,0,x_pos,y_pos,c_text_color,@font_name,value);
 	end
 
 	# Use this function to write text over the picture.
@@ -2789,7 +2792,6 @@ class Rchart
 							start_offset = -(@line_width/2)
 							end_offset = (@line_width/2)
 							j = start_offset
-
 							while j<=end_offset
 								self.draw_antialias_pixel(x+j,y+j,r,g,b)
 								j+=1
