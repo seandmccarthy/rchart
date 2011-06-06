@@ -17,7 +17,9 @@ rchart has 2 branches
 * sudo apt-get install libpng-dev
 * sudo apt-get install libgd2-xpm-dev
 
-* Examples Of Rchart https://github.com/amardaxini/rchart_examples
+* Examples Of Rchart 
+* http://amardaxini.github.com/rchart/
+* https://github.com/amardaxini/rchart_examples
 == TODO
 * Refactor code
 * Use dry principle
