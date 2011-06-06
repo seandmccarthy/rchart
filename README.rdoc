@@ -2,8 +2,14 @@
 
 rchart is ruby port of the slick pChart charting library.
 
-This gem requires ruby-gd 0.8.0 dependency.
+rchart has 2 branches 
+
+* (Gem 1.x) based on GD library it has ruby-gd 0.8.0 dependency.
 * gem install ruby-gd
+
+* (Gem 2.x) based on GD2 library it has gd2 dependency.
+* gem install gd2 or gem install gd2-ffij
+
 # ruby-gd requires mainly following dependencies
 # libgd-ruby,libpng-dev,libgd-dev
 # On Ubuntu you can install
@@ -11,10 +17,13 @@ This gem requires ruby-gd 0.8.0 dependency.
 * sudo apt-get install libpng-dev
 * sudo apt-get install libgd2-xpm-dev
 
-
+* Examples Of Rchart https://github.com/amardaxini/rchart_examples
 == TODO
 * Refactor code
-* Use gd2 library instead of gd
+* Use dry principle
+* Shorten Method 
+* Many More...
+
 == Copyright
 
 Copyright (c) 2010 amardaxini. See LICENSE for details.
